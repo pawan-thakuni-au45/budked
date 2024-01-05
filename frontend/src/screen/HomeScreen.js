@@ -1,24 +1,37 @@
 import React from 'react'
+import { useEffect,useState } from 'react'
 
 import {Row,Col} from 'react-bootstrap'
-import products from '../Products'
-import Product from '../component/Product'
+
+import Product from '../component/Product.js'
+import { useGetProductsQuery } from '../slices/productApiSlices.js'
+
 
 const HomeScreen = () => {
-  return (
-    <>
-    <h1>Latest Products</h1>
-    <Row>
-    {
-    products.map((product)=>(
-        <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            <Product product={product}></Product>
-        </Col>
+  //usegetproductquery gives us all these things
+  const {data:products,isLoading,error}=useGetProductsQuery()
+  console.log(products)
 
-    ))
-    }
-    </Row>
+  
+  return (
+
+    <>
+     {isLoading?(<h2>Loading...</h2>):error?(<div>{error?.data?.message || error.error}</div>):( 
+    
+      <Row>
+      {
+      products.map((product)=>(
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+              <Product product={product}></Product>
+          </Col>
+  
+      ))
+      }
+      </Row>
+      )}
+      
     </>
+   
   )
 }
 
