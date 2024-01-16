@@ -13,14 +13,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screen/HomeScreen.js';
 import ProductScreen from './screen/ProductScreen.js';
+import CartScreen from './screen/CartScreen.js';
 
-
+// //  
 
 const route=createBrowserRouter(
   createRoutesFromElements(
         <Route path='/' element={<App/>}>
          <Route index={true} path='/' element={<HomeScreen/>}></Route>
          <Route path='/products/:id' element={<ProductScreen/>}></Route>
+          <Route path='/cart' element={<CartScreen/>}></Route>
+        
+
 
         
         </Route>
