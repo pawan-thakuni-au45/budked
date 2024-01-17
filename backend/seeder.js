@@ -4,7 +4,7 @@ import  colors  from "colors";
 
 import users from "./data/Users.js";
 import products from "./data/Products.js";
-import User from "./model/UserModel.js";
+import User from "./model/userModel.js";
 import Products from "./model/productModel.js";
 import Order from "./model/orderModel.js";
 import connectDB from "./config/db.js";
