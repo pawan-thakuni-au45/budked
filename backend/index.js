@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cookieParser from 'cookie-parser'
 
 import router from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
@@ -18,6 +19,9 @@ const app=express()
 app.use(express.json())
 
 app.use(express.urlencoded({extended:true}))
+
+//cookie parser mdlwear  ,it will allow us to accept req.cookie
+app.use(cookieParser())
 
 
 app.get('/',(req,res)=>{

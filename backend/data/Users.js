@@ -17,8 +17,15 @@ const users=[
     },
     {
         name:'third user',
-        email:'third@email.com',
+        email:'third@gmail.com',
         password:bcrypt.hashSync('91235',10),
+        isAdmin:false,
+
+    },
+    {
+        name:'fourth user',
+        email:'fourth@email.com',
+        password:bcrypt.hashSync('1234',10),
         isAdmin:false,
 
     },
